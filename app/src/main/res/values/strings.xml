@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">beber agua - lembrete</string>
+    <string name="hint_peso">Seu peso (Kg)</string>
+    <string name="hint_age">Sua idade</string>
+    <string name="btn_text_calcular">Calcule a ingestão diaria</string>
+    <string name="txt_ml">0.0 Ml</string>
+    <string name="btn_lembrete">Lembrete</string>
+    <string name="btn_alarm">Alarme</string>
+    <string name="txt_minuto">00</string>
+    <string name="txt_hora">00</string>
+    <string name="bebalogo">bebalogo</string>
+    <string name="restart">restart</string>
+    <string name="dois_pontos">:</string>
+
+
 </resources>
