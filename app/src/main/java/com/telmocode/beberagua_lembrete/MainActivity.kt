@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.telmocode.beberagua_lembrete.model.CalcularIngestaoDiaria
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtResultadoMl: TextView
     private lateinit var btn_refresh: ImageView
 
+    private lateinit var calcularIngestaoDiaria: CalcularIngestaoDiaria
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         iniciarComponentes()
+        calcularIngestaoDiaria = CalcularIngestaoDiaria()
 
         btn_calc.setOnClickListener {
             if(editPeso.text.toString().isEmpty()){
@@ -32,6 +36,13 @@ class MainActivity : AppCompatActivity() {
 
             }else if(editIdade.text.toString().isEmpty()) {
                 Toast.makeText(this, R.string.touch_idade, Toast.LENGTH_SHORT).show()
+
+            }else{
+                val peso = editPeso.text.toString().toDouble()
+                val idade = editIdade.text.toString().toInt()
+                val total = calcularIngestaoDiaria.resultadoTotal().toString()
+                calcularIngestaoDiaria.calcularTotalMl(peso, idade)
+                txtResultadoMl.text = total.plus(" Ml")
 
             }
         }
